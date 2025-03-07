@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bookings</title>
+</head>
+<body>
+    <h1>Bookings</h1>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Driver</th>
+            <th>Service</th>
+            <th>Zone</th>
+            <th>Fare</th>
+            <th>Rating</th>
+            <th>Accepted</th>
+        </tr>
+        {% for booking in bookings %}
+        <tr>
+            <td>{{ booking.booking_id }}</td>
+            <td>{{ booking.driver_id }}</td>
+            <td>{{ booking.service_id }}</td>
+            <td>{{ booking.location_zone }}</td>
+            <td>${{ booking.fare }}</td>
+            <td>{{ booking.rating }}</td>
+            <td>{{ "Yes" if booking.accepted else "No" }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="/">Back to Home</a>
+</body>
+</html>
+

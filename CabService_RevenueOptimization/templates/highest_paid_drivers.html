@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Highest Paid Drivers</title>
+</head>
+<body>
+    <h1>Highest Paid Drivers</h1>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Total Earnings</th>
+        </tr>
+        {% for driver in drivers %}
+        <tr>
+            <td>{{ driver.driver_id }}</td>
+            <td>{{ driver.name }}</td>
+            <td>${{ driver.total_earnings }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="/">Back to Home</a>
+</body>
+</html>
+

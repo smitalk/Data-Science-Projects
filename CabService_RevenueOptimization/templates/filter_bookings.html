@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Filter Bookings</title>
+</head>
+<body>
+    <h1>Filter Bookings by Date</h1>
+    <form method="get" action="/filter_bookings">
+        <label for="start_date">Start Date:</label>
+        <input type="date" name="start_date" value="{{ start_date }}">
+        
+        <label for="end_date">End Date:</label>
+        <input type="date" name="end_date" value="{{ end_date }}">
+        
+        <button type="submit">Filter</button>
+    </form>
+
+    {% if bookings %}
+        <table border="1">
+            <tr>
+                <th>ID</th>
+                <th>Driver</th>
+                <th>Service</th>
+                <th>Zone</th>
+                <th>Fare</th>
+                <th>Rating</th>
+                <th>Booking Time</th>
+                <th>Accepted</th>
+            </tr>
+            {% for booking in bookings %}
+            <tr>
+                <td>{{ booking.booking_id }}</td>
+                <td>{{ booking.driver_id }}</td>
+                <td>{{ booking.service_id }}</td>
+                <td>{{ booking.location_zone }}</td>
+                <td>${{ booking.fare }}</td>
+                <td>{{ booking.rating }}</td>
+                <td>{{ booking.booking_time }}</td>
+                <td>{{ "Yes" if booking.accepted else "No" }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No bookings found for selected dates.</p>
+    {% endif %}
+
+    <a href="/">Back to Home</a>
+</body>
+</html>
+

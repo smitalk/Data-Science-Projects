@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Services</title>
+</head>
+<body>
+    <h1>Available Services</h1>
+    <table border="1">
+        <tr>
+            <th>Service ID</th>
+            <th>Service Type</th>
+            <th>Base Fare</th>
+            <th>Per Mile Charge</th>
+        </tr>
+        {% for service in services %}
+        <tr>
+            <td>{{ service.service_id }}</td>
+            <td>{{ service.service_type }}</td>
+            <td>${{ service.base_fare }}</td>
+            <td>${{ service.per_mile_charge }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="/">Back to Home</a>
+</body>
+</html>
+

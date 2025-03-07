@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reports</title>
+</head>
+<body>
+    <h1>Driver Performance</h1>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Zone</th>
+            <th>Vehicle</th>
+            <th>Total Bookings</th>
+            <th>Avg Rating</th>
+            <th>Total Earnings</th>
+        </tr>
+        {% for row in driver_performance %}
+        <tr>
+            <td>{{ row.driver_id }}</td>
+            <td>{{ row.name }}</td>
+            <td>{{ row.location_zone }}</td>
+            <td>{{ row.vehicle_type }}</td>
+            <td>{{ row.total_bookings }}</td>
+            <td>{{ row.avg_rating }}</td>
+            <td>${{ row.total_earnings }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h1>Service Demand</h1>
+    <table border="1">
+        <tr>
+            <th>Zone</th>
+            <th>Service</th>
+            <th>Total Bookings</th>
+        </tr>
+        {% for row in service_demand %}
+        <tr>
+            <td>{{ row.location_zone }}</td>
+            <td>{{ row.service_type }}</td>
+            <td>{{ row.total_bookings }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <a href="/">Back to Home</a>
+</body>
+</html>
+

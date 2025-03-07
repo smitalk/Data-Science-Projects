@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cab Service Dashboard</title>
+</head>
+<body>
+    <h1>Welcome to Cab Service Optimization System</h1>
+    <a href="/drivers">View Drivers</a> |
+    <a href="/bookings">View Bookings</a> |
+    <a href="/reports">View Reports</a> |
+    <a href="/search_drivers">Search Drivers</a> |
+    <a href="/filter_bookings">Filter Bookings</a> |
+    <a href="/highest_paid_drivers">Highest Paid Drivers</a> |
+    <a href="/driver_acceptance_performance">Driver Acceptance Performance</a> |
+    <a href="/services">View Services</a>
+    <h2>📊 Total Drivers by Zone</h2>
+    <table border="1">
+        <tr>
+            <th>Zone</th>
+            <th>Total Drivers</th>
+        </tr>
+        {% for row in total_drivers_by_zone %}
+        <tr>
+            <td>{{ row.location_zone }}</td>
+            <td>{{ row.total_drivers }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>📈 Total Number of Bookings by Zone & Service Type</h2>
+    <table border="1">
+        <tr>
+            <th>Zone</th>
+            <th>Service Type</th>
+            <th>Total Bookings</th>
+        </tr>
+        {% for row in total_bookings_by_zone %}
+        <tr>
+            <td>{{ row.location_zone }}</td>
+            <td>{{ row.service_type }}</td>
+            <td>{{ row.total_bookings }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>📊 Average Acceptance Rate by Zone & Service Type</h2>
+    <table border="1">
+        <tr>
+            <th>Zone</th>
+            <th>Service Type</th>
+            <th>Average Acceptance Rate (%)</th>
+        </tr>
+        {% for row in avg_acceptance_by_zone %}
+        <tr>
+            <td>{{ row.location_zone }}</td>
+            <td>{{ row.service_type }}</td>
+            <td>{{ row.avg_acceptance | round(2) }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>💰 Revenue by Zone & Service Type</h2>
+    <table border="1">
+        <tr>
+            <th>Zone</th>
+            <th>Service Type</th>
+            <th>Total Earnings ($)</th>
+        </tr>
+        {% for row in revenue_by_zone %}
+        <tr>
+            <td>{{ row.location_zone }}</td>
+            <td>{{ row.service_type }}</td>
+            <td>${{ row.revenue }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
+

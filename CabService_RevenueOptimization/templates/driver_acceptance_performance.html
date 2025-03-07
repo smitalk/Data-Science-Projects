@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Driver Acceptance Performance</title>
+</head>
+<body>
+    <h1>Driver Acceptance Performance</h1>
+    <table border="1">
+        <tr>
+            <th>Driver Name</th>
+            <th>Service Type</th>
+            <th>Total Requests</th>
+            <th>Total Accepts</th>
+            <th>Acceptance Rate (%)</th>
+        </tr>
+        {% for row in performance %}
+        <tr>
+            <td>{{ row.name }}</td>
+            <td>{{ row.service_type }}</td>
+            <td>{{ row.total_requests }}</td>
+            <td>{{ row.total_accepts }}</td>
+            <td>{{ row.acceptance_rate }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="/">Back to Home</a>
+</body>
+</html>
+

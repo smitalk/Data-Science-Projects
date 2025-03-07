@@ -1,0 +1,4 @@
+service_id,service_type,base_fare,per_mile_charge
+1,Ride,5.0,1.5
+2,Food Delivery,3.0,1.0
+3,Grocery Delivery,4.0,1.2

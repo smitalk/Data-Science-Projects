@@ -1,0 +1,50 @@
+﻿flask
+mysql-connector-python
+
+
+-- database_setup.sql (SQL script to create tables)
+CREATE DATABASE CabServiceDB;
+USE CabServiceDB;
+
+
+CREATE TABLE Drivers (
+    driver_id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(255) NOT NULL,
+    location_zone VARCHAR(50) NOT NULL,
+    vehicle_type VARCHAR(50) NOT NULL,
+    availability BOOLEAN NOT NULL
+);
+
+
+CREATE TABLE Services (
+    service_id INT PRIMARY KEY AUTO_INCREMENT,
+    service_type VARCHAR(50) NOT NULL,
+    base_fare DECIMAL(10,2) NOT NULL,
+    per_mile_charge DECIMAL(10,2) NOT NULL
+);
+
+
+CREATE TABLE Bookings (
+    booking_id INT PRIMARY KEY AUTO_INCREMENT,
+    driver_id INT,
+    service_id INT,
+    location_zone VARCHAR(50) NOT NULL,
+    fare DECIMAL(10,2) NOT NULL,
+    rating INT CHECK (rating BETWEEN 1 AND 5),
+    booking_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    accepted BOOLEAN NOT NULL,
+    FOREIGN KEY (driver_id) REFERENCES Drivers(driver_id),
+    FOREIGN KEY (service_id) REFERENCES Services(service_id)
+);
+
+
+CREATE TABLE Driver_Acceptance (
+    driver_id INT,
+    service_id INT,
+    total_requests INT NOT NULL,
+    total_accepts INT NOT NULL,
+    acceptance_rate DECIMAL(5,2) GENERATED ALWAYS AS ((total_accepts / total_requests) * 100) STORED,
+    PRIMARY KEY (driver_id, service_id),
+    FOREIGN KEY (driver_id) REFERENCES Drivers(driver_id),
+    FOREIGN KEY (service_id) REFERENCES Services(service_id)
+);
