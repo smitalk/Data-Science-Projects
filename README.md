@@ -1,11 +1,11 @@
 # Data-Science-Projects
 Project 1: Cab Service Optimization for Revenue Generation
 The Cab Service Optimization System is a Flask-based web application integrated with a MySQL database. The primary goal of this project is to analyse driver performance, service demand, and revenue while providing features to:
-● Search for drivers by name or zone.
-● Filter bookings by selecting a start and end date.
-● View the list of highest-paid drivers based on earnings.
-● Analyse driver acceptance performance to determine service preferences.
-● Provide a dashboard with insights into revenue, bookings, and acceptance rates.
+1. Search for drivers by name or zone.
+2. Filter bookings by selecting a start and end date.
+3. View the list of highest-paid drivers based on earnings.
+4. Analyse driver acceptance performance to determine service preferences.
+5. Provide a dashboard with insights into revenue, bookings, and acceptance rates.
 Key Functionalities
 1. Search for drivers (by name or location zone).
 2. Filter bookings (by date range).
