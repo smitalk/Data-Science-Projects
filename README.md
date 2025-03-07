@@ -6,6 +6,7 @@ The Cab Service Optimization System is a Flask-based web application integrated 
 3. View the list of highest-paid drivers based on earnings.
 4. Analyse driver acceptance performance to determine service preferences.
 5. Provide a dashboard with insights into revenue, bookings, and acceptance rates.
+
 Key Functionalities
 1. Search for drivers (by name or location zone).
 2. Filter bookings (by date range).
